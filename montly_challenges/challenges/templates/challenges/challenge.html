@@ -1,0 +1,22 @@
+{% extends 'page_content.html' %}
+{% comment %} below code is working code without tags {% endcomment %}
+
+
+
+{% block title %}
+    {{month_name}} Challenge
+{% endblock  %}
+
+{% block content%}
+    {% include 'challenges/includes/include.html' with page='challenge'%}
+    {% if text is not None%}
+        <h1>{{month_name}} Challenge</h1>
+        <h2>{{text}}</h2>
+    {% else%}
+        <p>There is no challenges for this month</p>
+    {% endif %}
+{% endblock  %}
+ 
+
+
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% comment %} below code is an example of for tags. 
+Additionally, I am using the template inheritence where base class or base template is base.html
+{% endcomment %}
+
+
+
+
+{% block  page_title %}
+    All Challenges
+{% endblock  %}
+    
+{% block content %}
+    {% include 'challenges/includes/include.html' with page='index' %}
+    <ul>
+        {% for month in months %}
+        <li><a href =  '{% url 'month_challenge' month %}'>{{month | title }}</a></li>
+            {% comment %}
+            here URL is hard coded 
+             <li><a href = '/challenge/ {{month}}' month> {{month | title }}</a></li>
+            {% endcomment %}
+        {% endfor %}
+    </ul>
+{% endblock  %}
