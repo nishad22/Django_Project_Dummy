@@ -1,0 +1,30 @@
+
+{% extends 'reviews/base.html' %}
+
+
+{% block title %}
+{% endblock  %}
+    
+{% block content %}
+    <!post request>
+    <form action = '/' method = "POST">
+        {% csrf_token %}
+        <!{% if has_error %}>
+           <! <p This form is invalid - please enter  a valid  username>
+        <!{% endif %}>
+       <! <label for ='username'Your name</label>
+       <! <input id = 'username' name = 'name' type = 'text'>
+       <! below code replaces above input and label tag by using form class>
+       <!customizing the form>
+
+       {% for field in form %}
+        <div class='form-control {% if field.errors %} errors {% endif %}'>
+           {{field.label_tag}}
+           {{field}}
+           {{field.errors}}
+        </div>
+       {% endfor %}
+       <button type = 'submit'>send</button>
+
+    </form>
+{% endblock  %}
